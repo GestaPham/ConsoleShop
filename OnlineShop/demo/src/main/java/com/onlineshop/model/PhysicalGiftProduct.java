@@ -20,6 +20,11 @@ public class PhysicalGiftProduct extends GiftProduct {
         this.weight = weight;
     }
 
+    public PhysicalGiftProduct(String name, String description, int quantityAvailable, double price, double weight) {
+        super(name, description, quantityAvailable, price);
+        this.weight = weight;
+    }
+
     @Override
     public String getProductType() {
         return "PHYSICAL";

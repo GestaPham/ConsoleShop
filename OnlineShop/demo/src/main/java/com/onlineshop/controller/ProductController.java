@@ -1,5 +1,6 @@
 package com.onlineshop.controller;
 
+
 /**
  * @author Pham Hoang Long - S3938007
  */
@@ -10,12 +11,15 @@ import com.onlineshop.model.DigitalProduct;
 import com.onlineshop.model.PhysicalProduct;
 import com.onlineshop.model.Product;
 import com.onlineshop.model.ProductService;
+import com.onlineshop.model.ShoppingCartService;
 
 public class ProductController {
     private final ProductService productService;
+    private final ShoppingCartService shoppingCartService;
 
-    public ProductController(ProductService productService){
+    public ProductController(ProductService productService, ShoppingCartService shoppingCartService){
         this.productService = productService;
+        this.shoppingCartService = shoppingCartService;
     }
 
     public boolean createDigitalProduct(String name, String description, int quantity, double price){
@@ -26,12 +30,13 @@ public class ProductController {
         return productService.addProduct(new PhysicalProduct(name, description, quantity, price, weight));
     }
 
-    public boolean deleteProduct(String productName){
+    public boolean deleteProduct(String cartName, String productName){
         Product product = getProduct(productName);
         if (product == null){
             return false;
         }
 
+        shoppingCartService.removeItemFromShoppingCart(cartName, productName);
         productService.removeProduct(productName);
         product = null;
         return true;

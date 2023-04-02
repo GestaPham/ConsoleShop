@@ -32,6 +32,12 @@ public class ShoppingCartService {
         return false;
     }
 
+    public boolean removeItemFromShoppingCart(String cartName, String productName){
+        ShoppingCart cart = shoppingCartList.get(cartName);
+        cart.removeItem(productName);
+        return true;
+    }
+
     public ShoppingCart geShoppingCart(String cartName){
         return shoppingCartList.get(cartName);
     }

@@ -9,6 +9,10 @@ public class DigitalGiftProduct extends GiftProduct {
         super(name, description, quantityAvailable, price, message);
     }
 
+    public DigitalGiftProduct(String name, String description, int quantityAvailable, double price) {
+        super(name, description, quantityAvailable, price);
+    }
+
     @Override
     public String getProductType() {
         return "DIGITAL";

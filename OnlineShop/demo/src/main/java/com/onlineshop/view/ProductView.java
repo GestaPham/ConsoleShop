@@ -139,7 +139,7 @@ public class ProductView {
 
     public void deleteProduct(){
         String name = userInput.getUserInputString("Enter product name: ");
-        boolean deleted = productController.deleteProduct(name);
+        boolean deleted = productController.deleteProduct(ConsoleView.currentCart, name);
         if (deleted){
             ConsoleView.clearConsole();
             System.out.println("Product deleted!");

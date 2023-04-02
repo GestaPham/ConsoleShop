@@ -19,4 +19,9 @@ package com.onlineshop.model;
         super(name, description, quantityAvailable, price);
         this.message = message;
     }
+
+    public GiftProduct(String name, String description, int quantityAvailable, double price) {
+        super(name, description, quantityAvailable, price);
+        this.message = " ";
+    }
 }

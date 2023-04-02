@@ -12,7 +12,7 @@ package com.onlineshop;
          ProductService productService = new ProductService();
          ShoppingCartService shoppingCartService = new ShoppingCartService(productService);
  
-         ProductController productController = new ProductController(productService);
+         ProductController productController = new ProductController(productService, shoppingCartService);
          ShoppingCartController shoppingCartController = new ShoppingCartController(productService, shoppingCartService);
  
          ProductView productView = new ProductView(productController);

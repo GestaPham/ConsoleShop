@@ -53,7 +53,7 @@ public class ShoppingCart implements Comparable<ShoppingCart> {
         if (this.myProducts.contains(productName)){
             myProducts.remove(productName);
             product.setQuantityAvailable(product.getQuantityAvailable()+1);
-            removeGiftItem(productName);
+            this.removeGiftItem(productName);
             return true;
         }
 
